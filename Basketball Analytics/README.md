@@ -6,7 +6,7 @@ Calculate the plus/minus for each player in each game
 
 ### Anaconda
 
-[Anaconda](https://www.anaconda.com/download/) 
+To install, go to [https://www.anaconda.com/download/](https://www.anaconda.com/download/) 
 
 You should be able to run the following command after the installation procedure
 below.
