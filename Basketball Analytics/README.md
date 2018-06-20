@@ -4,6 +4,10 @@ Calculate the plus/minus for each player in each game
 
 ## Requirements
 
+### Python
+
+Built with Python version 3.6.5
+
 ### Anaconda
 
 To install, go to [https://www.anaconda.com/download/](https://www.anaconda.com/download/) 
