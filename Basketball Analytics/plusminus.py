@@ -1,19 +1,29 @@
+import os
 import pandas as pd
 
-def writeCSV():
-    events = pd.read_table('data/NBA Hackathon - Event Codes.txt')
-    lineup = pd.read_table('data/NBA Hackathon - Game Lineup Data Sample (50 Games).txt')
-    plays = pd.read_table('data/NBA Hackathon - Play by Play Data Sample (50 Games).txt')
+def csv_generator(inputPath, outputPath):
+    """This function is used to convert input .txt to .csv
 
-    sorted_plays = plays.sort_values(by=['Game_id', 'Period', 'PC_Time', 'WC_Time', 'Event_Num'], ascending=[True, True, False, True, True])
+    Args:
+        param1 (str): The path to provided sample data.
+        param2 (str): The path to output folder.
 
-    events.to_csv('results/event_code.csv', index=False)
-    lineup.to_csv('results/game_lineup.csv', index=False)
-    sorted_plays.to_csv('results/play_by_play.csv', index=False)
+    Yields:
+        bool: Writes the csv to path. True for success. False otherwise.
 
-    pd.read_table('data/NBA Hackathon - Game Lineup Data Sample (50 Games).txt', usecols=['Game_id', 'Person_id']).to_csv('results/Q1_BBALL.csv', index=False)
-    plus_minus = pd.read_csv('results/Q1_BBALL.csv')
-    plus_minus['Player_Plus/Minus'] = ''
-    plus_minus.to_csv('results/Q1_BBALL.csv', index=False)   
+    """
+    for file in os.listdir(inputPath):
+        filename = os.fsdecode(file)
+        if filename.endswith(".txt"):
+            df = pd.read_table(inputPath + filename)
+            if ("Play" in filename):
+                df = df.sort_values(by=['Game_id', 'Period', 'PC_Time', 'WC_Time', 'Event_Num'], ascending=[True, True, False, True, True])
+            if ("Lineup" in filename): 
+                plus_minus = pd.read_table(inputPath + filename, usecols=['Game_id', 'Person_id'])
+                plus_minus['Player_Plus/Minus'] = ''
+                plus_minus.to_csv('results/Q1_BBALL.csv', index=False) 
+            df.to_csv(outputPath + filename.split(".")[0] + '.csv', index=False)
 
-writeCSV()
+    return True
+
+csv_generator('data/', 'results/')
