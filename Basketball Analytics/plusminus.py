@@ -5,8 +5,8 @@ def csv_generator(inputPath, outputPath):
     """This function is used to convert input .txt to .csv
 
     Args:
-        param1 (str): The path to provided sample data.
-        param2 (str): The path to output folder.
+        inputPath (str): The path to provided sample data.
+        outputPath (str): The path to output folder.
 
     Yields:
         bool: Writes the csv to path. True for success. False otherwise.
