@@ -17,7 +17,7 @@ def csv_generator(inputPath, outputPath):
         if filename.endswith(".txt"):
             df = pd.read_table(inputPath + filename)
             if ("Play" in filename):
-                df = df.sort_values(by=['Game_id', 'Period', 'PC_Time', 'WC_Time', 'Event_Num'], ascending=[True, True, False, True, True])
+                df.sort_values(by=['Game_id', 'Period', 'PC_Time', 'WC_Time', 'Event_Num'], ascending=[True, True, False, True, True], inplace=True)
             if ("Lineup" in filename): 
                 plus_minus = pd.read_table(inputPath + filename, usecols=['Game_id', 'Person_id'])
                 plus_minus['Player_Plus/Minus'] = ''
@@ -26,4 +26,21 @@ def csv_generator(inputPath, outputPath):
 
     return True
 
-csv_generator('data/', 'results/')
+def calc_plus_minus():
+    # csv_generator('data/', 'results/')
+    box_score_generator()
+
+def box_score_generator():
+    df = pd.read_csv('results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv', usecols=['Game_id', 'Team_id'])
+    unique_pairs = df.drop_duplicates(subset=['Game_id', 'Team_id'])
+    box_score = {}
+    for index, row in unique_pairs.iterrows():
+        if (box_score.get(row['Game_id'])):
+            box_score[row['Game_id']][row['Team_id']] = 0
+        else: 
+            box_score[row['Game_id']] = {}
+            box_score[row['Game_id']][row['Team_id']] = 0
+    print(box_score)
+
+
+calc_plus_minus()
