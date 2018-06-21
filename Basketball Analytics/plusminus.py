@@ -1,9 +1,7 @@
 #!/usr/bin python3
 
-
 import os
 import pandas as pd
-
 
 def write_csv(inputPath, outputPath):
     """This function is used to convert input .txt to .csv
@@ -12,7 +10,7 @@ def write_csv(inputPath, outputPath):
         inputPath (str): The path to provided sample data.
         outputPath (str): The path to output folder.
 
-    Yields:
+    Returns:
         bool: Writes the csv to path. True for success. False otherwise.
 
     """
@@ -32,9 +30,23 @@ def write_csv(inputPath, outputPath):
 
 def calc_plus_minus():
     write_csv('data/', 'results/')
-    print(league_matches_generator())
+    league_matches = filter_league_matches()
 
-def league_matches_generator():
+def filter_league_matches():
+    """This function is used to make a dictionary to hold unique match ups to track box scores
+
+    Returns:
+        Object: 
+
+        {
+            game_id: {
+                team_1: score,
+                team_2: score
+            }
+        }
+
+    """
+
     league_matches = {}
 
     unique_pairs = pd.read_csv('results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv', usecols=['Game_id', 'Team_id'])
@@ -43,7 +55,7 @@ def league_matches_generator():
     for i, row in unique_pairs.iterrows():
         game_id = row['Game_id']
         team_id = row['Team_id']
-        if not (league_matches.get(game_id)):
+        if league_matches.get(game_id) is None:
             league_matches[game_id] = {}
         league_matches[game_id][team_id] = 0
     
