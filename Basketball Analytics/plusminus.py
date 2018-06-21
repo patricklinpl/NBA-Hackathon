@@ -28,10 +28,6 @@ def write_csv(inputPath, outputPath):
 
     return True
 
-def calc_plus_minus():
-    write_csv('data/', 'results/')
-    league_matches = filter_league_matches()
-
 def filter_league_matches():
     """This function is used to make a dictionary to hold unique match ups to track box scores
 
@@ -61,5 +57,8 @@ def filter_league_matches():
     
     return league_matches
 
+def calc_plus_minus():
+    write_csv('data/', 'results/')
+    league_matches = filter_league_matches()
 
 calc_plus_minus()
