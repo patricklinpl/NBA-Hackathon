@@ -1,7 +1,11 @@
+#!/usr/bin python3
+
+
 import os
 import pandas as pd
 
-def csv_generator(inputPath, outputPath):
+
+def write_csv(inputPath, outputPath):
     """This function is used to convert input .txt to .csv
 
     Args:
@@ -27,20 +31,23 @@ def csv_generator(inputPath, outputPath):
     return True
 
 def calc_plus_minus():
-    # csv_generator('data/', 'results/')
-    box_score_generator()
+    write_csv('data/', 'results/')
+    print(league_matches_generator())
 
-def box_score_generator():
-    df = pd.read_csv('results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv', usecols=['Game_id', 'Team_id'])
-    unique_pairs = df.drop_duplicates(subset=['Game_id', 'Team_id'])
-    box_score = {}
-    for index, row in unique_pairs.iterrows():
-        if (box_score.get(row['Game_id'])):
-            box_score[row['Game_id']][row['Team_id']] = 0
-        else: 
-            box_score[row['Game_id']] = {}
-            box_score[row['Game_id']][row['Team_id']] = 0
-    print(box_score)
+def league_matches_generator():
+    league_matches = {}
+
+    unique_pairs = pd.read_csv('results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv', usecols=['Game_id', 'Team_id'])
+    unique_pairs.drop_duplicates(subset=['Game_id', 'Team_id'], inplace=True)
+
+    for i, row in unique_pairs.iterrows():
+        game_id = row['Game_id']
+        team_id = row['Team_id']
+        if not (league_matches.get(game_id)):
+            league_matches[game_id] = {}
+        league_matches[game_id][team_id] = 0
+    
+    return league_matches
 
 
 calc_plus_minus()
