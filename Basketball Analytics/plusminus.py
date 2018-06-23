@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 
-def filter_league_matches():
+def process_match_lineups():
     """This function is used to make a dictionary to hold unique match ups to track box scores
 
     Returns:
@@ -25,31 +25,35 @@ def filter_league_matches():
     """
 
     league_matches = {}
+    match_starters = {}
 
-    unique_pairs = pd.read_csv('results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv', usecols=['Game_id', 'Person_id', 'Team_id'])
-    unique_pairs.drop_duplicates(subset=['Game_id', 'Person_id', 'Team_id'], inplace=True)
+    match_lineups = pd.read_csv('results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv')
 
-    for i, row in unique_pairs.iterrows():
+    for i, row in match_lineups.iterrows():
         game_id = row['Game_id']
         team_id = row['Team_id']
         person_id = row['Person_id']
+        period = row['Period']
 
         if league_matches.get(game_id) is None:
             league_matches[game_id] = {}
+            match_starters[game_id] = {}
         
-        game = league_matches[game_id]
+        if league_matches[game_id].get(team_id) is None:
+            league_matches[game_id][team_id] = {}
+            match_starters[game_id][team_id] = {}
+
+        if league_matches[game_id][team_id].get('box_score') is None:
+            league_matches[game_id][team_id]['box_score'] = 0
         
-        if game.get(team_id) is None:
-            game[team_id] = {}
-
-        team = league_matches[game_id][team_id]
-
-        if team.get('box_score') is None:
-            team['box_score'] = 0
-
-        team[person_id] = 0
+        league_matches[game_id][team_id][person_id] = 0
+        
+        if match_starters[game_id][team_id].get(period) is None:
+            match_starters[game_id][team_id][period] = {}
+        
+        match_starters[game_id][team_id][period][person_id] = True
     
-    return league_matches
+    return (league_matches, match_starters)
 
 def process_game_logs(league_matches):
     """This function is used to determine the action to take from each play by plays
@@ -110,8 +114,9 @@ def process_game_logs(league_matches):
 
 
 def calc_plus_minus():
-    league_matches = filter_league_matches()
-    res = process_game_logs(league_matches)
+    league_matches, match_starters = process_match_lineups()
+    # print(match_starters['021fd159b55773fba8157e2090fe0fe2'])
+    # res = process_game_logs(league_matches)
     # print(res['021fd159b55773fba8157e2090fe0fe2'])
 
 calc_plus_minus()
