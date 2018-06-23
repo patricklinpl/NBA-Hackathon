@@ -6,7 +6,7 @@ Calculate the plus/minus for each player in each game
 
 ### Python
 
-Built with Python version 3.6.5
+Requires at least Python version 3.6.5
 
 ### Anaconda
 
@@ -18,7 +18,12 @@ below.
     $ conda --version
     conda 4.5.4
 
-## Install
+## Install & Setup
 
     $ git clone https://github.com/Varoon3/NBA-Hackathon.git
     $ cd <PROJECT-PATH>/Basketball\ Analytics/
+    $ python setup.py 
+
+## Calculate Plus Minus 
+
+    $ python plusminus.py

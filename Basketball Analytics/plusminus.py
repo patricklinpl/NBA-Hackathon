@@ -1,33 +1,7 @@
 #!/usr/bin python3
 
-import os
 import pandas as pd
 import numpy as np
-
-def write_csv(inputPath, outputPath):
-    """This function is used to convert input .txt to .csv
-
-    Args:
-        inputPath (str): The path to provided sample data.
-        outputPath (str): The path to output folder.
-
-    Returns:
-        bool: Writes the csv to path. True for success. False otherwise.
-
-    """
-    for file in os.listdir(inputPath):
-        filename = os.fsdecode(file)
-        if filename.endswith(".txt"):
-            df = pd.read_table(inputPath + filename)
-            if ("Play" in filename):
-                df.sort_values(by=['Game_id', 'Period', 'PC_Time', 'WC_Time', 'Event_Num'], ascending=[True, True, False, True, True], inplace=True)
-            if ("Lineup" in filename): 
-                plus_minus = pd.read_table(inputPath + filename, usecols=['Game_id', 'Person_id'])
-                plus_minus['Player_Plus/Minus'] = ''
-                plus_minus.to_csv('results/Q1_BBALL.csv', index=False) 
-            df.to_csv(outputPath + filename.split(".")[0] + '.csv', index=False)
-
-    return True
 
 def filter_league_matches():
     """This function is used to make a dictionary to hold unique match ups to track box scores
@@ -115,6 +89,9 @@ def process_game_logs(league_matches):
 
         game = league_matches[game_id]
 
+        # if row['Period'] is 2:
+        #     break
+
         if game.get(team_id) is None:
             continue
 
@@ -133,8 +110,8 @@ def process_game_logs(league_matches):
 
 
 def calc_plus_minus():
-    write_csv('data/', 'results/')
     league_matches = filter_league_matches()
     res = process_game_logs(league_matches)
+    # print(res['021fd159b55773fba8157e2090fe0fe2'])
 
 calc_plus_minus()
