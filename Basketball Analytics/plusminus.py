@@ -195,7 +195,7 @@ def write_plus_minus_csv(plus_minus_data):
 
     """
 
-    df = pd.read_csv('results/results_template.csv')
+    df = pd.read_csv('results/results_template.csv', dtype={'Player_Plus/Minus': np.int8})
 
     for i, row in df.iterrows():
         plus_minus = row['Player_Plus/Minus']
