@@ -92,7 +92,7 @@ def process_game_logs(league_matches, match_starters):
 
     play_by_play = pd.read_csv('results/NBA Hackathon - Play by Play Data Sample (50 Games).csv', 
                               dtype={'Event_Msg_Type': np.int8, 'Period': np.int8, 'Action_Type': np.int8, 'Option1': np.int8})
-                              
+
     update_players_after_ft = []
 
     for i, row in play_by_play.iterrows():
@@ -215,9 +215,7 @@ def write_plus_minus_csv(plus_minus_data):
     return True
 
 def calc_plus_minus():
-    """This function calculates the plus minus and writes a csv file 
-
-    """
+    """This function calculates the plus minus and writes a csv file"""
     league_matches, match_starters = process_match_lineups()
     results = process_game_logs(league_matches, match_starters)
     write_plus_minus_csv(results)
