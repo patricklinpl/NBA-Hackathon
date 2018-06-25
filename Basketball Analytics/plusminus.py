@@ -55,7 +55,7 @@ def process_match_lineups():
     
     return (league_matches, match_starters)
 
-def process_game_logs(league_matches):
+def process_game_logs(league_matches, match_starters):
     """This function is used to determine the action to take from each play by plays
 
     Args:
@@ -90,11 +90,26 @@ def process_game_logs(league_matches):
         action = row['Action_Type']
         option = row['Option1']
         player = row['Person1']
+        sub = row['Person2']
+        period = row['Period']
 
         game = league_matches[game_id]
 
-        # if row['Period'] is 2:
-        #     break
+        if row['Period'] is 2:
+            break
+
+        if event is 13:
+            teams = list(match_starters[game_id].keys())
+            for unique_team in teams:
+                opponent = getOpponent(game, unique_team) 
+                players = list(match_starters[game_id][unique_team][period].keys())
+                for unique_player in players:
+                     if match_starters[game_id][unique_team][period][unique_player] is True:
+                         league_matches[game_id][unique_team][unique_player] =+ league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score']
+                         
+                         
+            # for player in match_starters[game_id][]:
+            # break
 
         if game.get(team_id) is None:
             continue
@@ -105,18 +120,25 @@ def process_game_logs(league_matches):
         if (event is 3) and (option > 0) and (action is not 0):
             league_matches[game_id][team_id]['box_score'] += 1
         
-        if (event is 8) or (event is 11) or (event is 13):
-            team_keys = [*game]
-            opponent = list(filter(lambda x: x != team_id , team_keys))[0]
-            league_matches[game_id][team_id][player] = league_matches[game_id][team_id]['box_score'] - league_matches[game_id][opponent]['box_score'] 
+        if (event is 8) or (event is 11):
+            opponent = getOpponent(game, team_id)
+            league_matches[game_id][team_id][player] =+ league_matches[game_id][team_id]['box_score'] - league_matches[game_id][opponent]['box_score']
+            match_starters[game_id][team_id][period][player] = False 
+            match_starters[game_id][team_id][period][sub] = True
 
-    return league_matches
 
+    return (league_matches, match_starters)
+
+def getOpponent(game, team_id):
+    team_keys = [*game]
+    opponent = list(filter(lambda x: x != team_id , team_keys))[0]
+    return opponent
 
 def calc_plus_minus():
     league_matches, match_starters = process_match_lineups()
     # print(match_starters['021fd159b55773fba8157e2090fe0fe2'])
-    # res = process_game_logs(league_matches)
-    # print(res['021fd159b55773fba8157e2090fe0fe2'])
+    res1, res2 = process_game_logs(league_matches, match_starters)
+    print(res1['021fd159b55773fba8157e2090fe0fe2'])
+    #print(res2['021fd159b55773fba8157e2090fe0fe2'])
 
 calc_plus_minus()
