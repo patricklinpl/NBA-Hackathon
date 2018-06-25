@@ -23,7 +23,7 @@ def write_csv(inputPath, outputPath):
             if ("Lineup" in filename): 
                 plus_minus = pd.read_table(inputPath + filename, usecols=['Game_id', 'Person_id'])
                 plus_minus['Player_Plus/Minus'] = ''
-                plus_minus.to_csv('results/Q1_BBALL.csv', index=False) 
+                plus_minus.to_csv('results/results_template.csv', index=False) 
             df.to_csv(outputPath + filename.split(".")[0] + '.csv', index=False)
 
     return True

@@ -195,7 +195,7 @@ def write_plus_minus_csv(plus_minus_data):
 
     """
 
-    df = pd.read_csv('results/Q1_BBALL.csv')
+    df = pd.read_csv('results/results_template.csv')
 
     for i, row in df.iterrows():
         plus_minus = row['Player_Plus/Minus']
@@ -219,5 +219,6 @@ def calc_plus_minus():
     league_matches, match_starters = process_match_lineups()
     results = process_game_logs(league_matches, match_starters)
     write_plus_minus_csv(results)
+    
 
 calc_plus_minus()
