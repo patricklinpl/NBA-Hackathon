@@ -103,3 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 .DS_Store
+Basketball Analytics/results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv
+Basketball Analytics/results/NBA Hackathon - Event Codes.csv
+Basketball Analytics/results/NBA Hackathon - Play by Play Data Sample (50 Games).csv
