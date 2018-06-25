@@ -209,7 +209,7 @@ def write_plus_minus_csv(plus_minus_data):
             if plus_minus_data[game_id][team].get(player) is None:
                 continue
             else:
-                df.at[i, 'Person_id'] = plus_minus_data[game_id][team][player]
+                df.at[i, 'Player_Plus/Minus'] = plus_minus_data[game_id][team][player]
     
     df.to_csv('results/Q1_BBALL.csv', index=False)
     return True
@@ -218,10 +218,6 @@ def calc_plus_minus():
     """This function calculates the plus minus and writes a csv file"""
     league_matches, match_starters = process_match_lineups()
     results = process_game_logs(league_matches, match_starters)
-    # write_plus_minus_csv(results)
-    print(results['021fd159b55773fba8157e2090fe0fe2']['012059d397c0b7e5a30a5bb89c0b075e'])
-    print('')
-    print('')
-    print(results['021fd159b55773fba8157e2090fe0fe2']['cff694c8186a4bd377de400e4f60fe47'])
+    write_plus_minus_csv(results)
     
 calc_plus_minus()
