@@ -112,19 +112,25 @@ def process_game_logs(league_matches, match_starters):
         
         if (event is 3) and (option > 0) and (action is not 0):
             league_matches[game_id][team_id]['box_score'] += 1
+
             if (len(update_players) > 0):
                 for player in update_players:
                     current_team = team_id
                     opponent = getOpponent(game, team_id)
+
                     if (match_starters[game_id][team_id][period].get(player)) is None:
                         current_team = opponent
                         opponent = team_id
-                    league_matches[game_id][current_team][player] = league_matches[game_id][current_team][player] + 1
-
+                    
+                    if team_id is current_team:
+                        league_matches[game_id][current_team][player] += 1
+                    else:
+                        league_matches[game_id][current_team][player] -= 1 
         
         if (event is 8) or (event is 11):
             current_team = team_id
             opponent = getOpponent(game, team_id)
+
             if (match_starters[game_id][team_id][period].get(player)) is None:
                 current_team = opponent
                 opponent = team_id
@@ -136,10 +142,13 @@ def process_game_logs(league_matches, match_starters):
 
         if event is 13:
             teams = list(match_starters[game_id].keys())
+
             for unique_team in teams:
                 opponent = getOpponent(game, unique_team) 
                 players = list(match_starters[game_id][unique_team][period].keys())
+
                 for unique_player in players:
+                    
                      if match_starters[game_id][unique_team][period][unique_player] is True:
                          league_matches[game_id][unique_team][unique_player] = league_matches[game_id][unique_team][unique_player] + (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
 
