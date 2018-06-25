@@ -4,7 +4,8 @@ import pandas as pd
 import numpy as np
 
 def process_match_lineups():
-    """This function is used to make two dictionaries to a) hold unique match ups to track box scores b) track players on the floor after each period
+    """This function is used to make two dictionaries to a) hold unique match ups to track box scores 
+       b) track players on the floor after each period
 
     Returns:
         league_matches: {
@@ -89,7 +90,9 @@ def process_game_logs(league_matches, match_starters):
 
     """
 
-    play_by_play = pd.read_csv('results/NBA Hackathon - Play by Play Data Sample (50 Games).csv', dtype={'Event_Msg_Type': np.int8, 'Period': np.int8, 'Action_Type': np.int8, 'Option1': np.int8})
+    play_by_play = pd.read_csv('results/NBA Hackathon - Play by Play Data Sample (50 Games).csv', 
+                              dtype={'Event_Msg_Type': np.int8, 'Period': np.int8, 'Action_Type': np.int8, 'Option1': np.int8})
+                              
     update_players_after_ft = []
 
     for i, row in play_by_play.iterrows():
