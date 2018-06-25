@@ -100,9 +100,6 @@ def process_game_logs(league_matches, match_starters):
 
         if game.get(team_id) is None:
             continue
-
-        if row['Period'] is 2:
-            break
         
         if (event is not 3) and (event is not 8):
             update_players = []
@@ -135,7 +132,10 @@ def process_game_logs(league_matches, match_starters):
                 current_team = opponent
                 opponent = team_id
             
-            league_matches[game_id][current_team][player] = league_matches[game_id][current_team][player] + (league_matches[game_id][current_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
+            if (league_matches[game_id][current_team].get(sub)) is None:
+                league_matches[game_id][current_team][sub] = 0
+
+            league_matches[game_id][current_team][player] = (league_matches[game_id][current_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
             match_starters[game_id][current_team][period][player] = False 
             match_starters[game_id][current_team][period][sub] = True
             update_players.append(player)
@@ -148,7 +148,7 @@ def process_game_logs(league_matches, match_starters):
                 players = list(match_starters[game_id][unique_team][period].keys())
 
                 for unique_player in players:
-                    
+
                      if match_starters[game_id][unique_team][period][unique_player] is True:
                          league_matches[game_id][unique_team][unique_player] = league_matches[game_id][unique_team][unique_player] + (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
 
@@ -161,7 +161,7 @@ def getOpponent(game, team_id):
 
 def calc_plus_minus():
     league_matches, match_starters = process_match_lineups()
-    # print(match_starters['021fd159b55773fba8157e2090fe0fe2'])
+    #print(league_matches['021fd159b55773fba8157e2090fe0fe2'])
     res1, res2 = process_game_logs(league_matches, match_starters)
     # print(res2['021fd159b55773fba8157e2090fe0fe2']['012059d397c0b7e5a30a5bb89c0b075e'])
     print(res1['021fd159b55773fba8157e2090fe0fe2']['012059d397c0b7e5a30a5bb89c0b075e'])
