@@ -110,17 +110,17 @@ def process_game_logs(league_matches, match_starters):
         # continue for invalid team_id. e.g. game start
         if game.get(team_id) is None:
             continue
-        
+
         # reset players to update if free throws are finished
-        if (event is not 3) and (event is not 8):
+        if (event != 3) and (event != 8):
             update_players_after_ft = []
 
         # update score when shot is made
-        if event is 1:
+        if event == 1:
             league_matches[game_id][team_id]['box_score'] += option
         
         # update score after a free throw 
-        if (event is 3) and (option > 0) and (action is not 0):
+        if (event == 3) and (option > 0) and (action != 0):
             league_matches[game_id][team_id]['box_score'] += 1
 
             # update players subbed out during a free throw 
@@ -139,7 +139,7 @@ def process_game_logs(league_matches, match_starters):
                         league_matches[game_id][current_team][player] -= 1 
         
         # calculate plus minus for players subbed out 
-        if (event is 8) or (event is 11):
+        if (event == 8) or (event == 11):
             current_team = team_id
             opponent = getOpponent(game, team_id)
 
@@ -156,7 +156,7 @@ def process_game_logs(league_matches, match_starters):
             update_players_after_ft.append(player)
 
         # calculate plus minus for player at the end of the quarter 
-        if event is 13:
+        if event == 13:
             teams = list(match_starters[game_id].keys())
 
             for unique_team in teams:
@@ -198,7 +198,6 @@ def write_plus_minus_csv(plus_minus_data):
     df = pd.read_csv('results/results_template.csv', dtype={'Player_Plus/Minus': np.int8})
 
     for i, row in df.iterrows():
-        plus_minus = row['Player_Plus/Minus']
         game_id = row['Game_id']
         player = row['Person_id']
 
