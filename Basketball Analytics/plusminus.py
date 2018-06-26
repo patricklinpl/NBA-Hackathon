@@ -110,7 +110,18 @@ def process_game_logs(league_matches, match_starters):
         # continue for invalid team_id. e.g. game start
         if game.get(team_id) is None:
             continue
+        
+        if event == 12:
+            teams = list(match_starters[game_id].keys())
 
+            for unique_team in teams:
+                opponent = getOpponent(game, unique_team) 
+                players = list(match_starters[game_id][unique_team][period].keys())
+
+                for unique_player in players:
+                     if match_starters[game_id][unique_team][period][unique_player] is True:
+                         league_matches[game_id][unique_team][unique_player] -= (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
+ 
         # reset players to update if free throws are finished
         if (event != 3) and (event != 8):
             update_players_after_ft = []
@@ -151,6 +162,7 @@ def process_game_logs(league_matches, match_starters):
                 league_matches[game_id][current_team][sub] = 0
 
             league_matches[game_id][current_team][player] += (league_matches[game_id][current_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
+            league_matches[game_id][current_team][sub] -= (league_matches[game_id][current_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
             match_starters[game_id][current_team][period][player] = False 
             match_starters[game_id][current_team][period][sub] = True
             update_players_after_ft.append(player)
