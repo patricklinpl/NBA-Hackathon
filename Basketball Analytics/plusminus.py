@@ -93,7 +93,8 @@ def process_game_logs(league_matches, match_starters):
     play_by_play = pd.read_csv('results/NBA Hackathon - Play by Play Data Sample (50 Games).csv', 
                               dtype={'Event_Msg_Type': np.int8, 'Period': np.int8, 'Action_Type': np.int8, 'Option1': np.int8})
 
-    update_players_after_ft = []
+    active_after_ft = []
+    sub_after_ft = []
 
     for i, row in play_by_play.iterrows():
         game_id = row['Game_id']
@@ -111,6 +112,13 @@ def process_game_logs(league_matches, match_starters):
         if game.get(team_id) is None:
             continue
         
+        # if row['Event_Num'] == 138:
+        #     print(row)
+        #     print(active_after_ft)
+        #     print(sub_after_ft)
+        #     break
+        
+        # - differential score at start of period 
         if event == 12:
             teams = list(match_starters[game_id].keys())
 
@@ -124,7 +132,17 @@ def process_game_logs(league_matches, match_starters):
  
         # reset players to update if free throws are finished
         if (event != 3) and (event != 8):
-            update_players_after_ft = []
+             # update players subbed out during a free throw 
+            if (len(active_after_ft) > 0):
+                for unique_player in active_after_ft:
+                    league_matches[game_id][unique_player['team_id']][unique_player['player_id']] -= (league_matches[game_id][unique_player['team_id']]['box_score'] - league_matches[game_id][unique_player['opponent_id']]['box_score'])
+
+            if (len(sub_after_ft) > 0):
+                for unique_player in sub_after_ft:
+                    league_matches[game_id][unique_player['team_id']][unique_player['player_id']] += (league_matches[game_id][unique_player['team_id']]['box_score'] - league_matches[game_id][unique_player['opponent_id']]['box_score'])
+
+            active_after_ft = []
+            sub_after_ft = []
 
         # update score when shot is made
         if event == 1:
@@ -133,21 +151,6 @@ def process_game_logs(league_matches, match_starters):
         # update score after a free throw 
         if (event == 3) and (option > 0) and (action != 0):
             league_matches[game_id][team_id]['box_score'] += 1
-
-            # update players subbed out during a free throw 
-            if (len(update_players_after_ft) > 0):
-                for player in update_players_after_ft:
-                    current_team = team_id
-                    opponent = getOpponent(game, team_id)
-
-                    if (match_starters[game_id][team_id][period].get(player)) is None:
-                        current_team = opponent
-                        opponent = team_id
-                    
-                    if team_id is current_team:
-                        league_matches[game_id][current_team][player] += 1
-                    else:
-                        league_matches[game_id][current_team][player] -= 1 
         
         # calculate plus minus for players subbed out 
         if (event == 8) or (event == 11):
@@ -161,11 +164,12 @@ def process_game_logs(league_matches, match_starters):
             if (league_matches[game_id][current_team].get(sub)) is None:
                 league_matches[game_id][current_team][sub] = 0
 
-            league_matches[game_id][current_team][player] += (league_matches[game_id][current_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
-            league_matches[game_id][current_team][sub] -= (league_matches[game_id][current_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
+            bench_player = {'team_id': current_team, 'player_id': player, 'opponent_id': opponent}
+            active_player = {'team_id': current_team, 'player_id': sub, 'opponent_id': opponent}
+            active_after_ft.append(active_player)
+            sub_after_ft.append(bench_player)
             match_starters[game_id][current_team][period][player] = False 
             match_starters[game_id][current_team][period][sub] = True
-            update_players_after_ft.append(player)
 
         # calculate plus minus for player at the end of the quarter 
         if event == 13:
@@ -230,5 +234,10 @@ def calc_plus_minus():
     league_matches, match_starters = process_match_lineups()
     results = process_game_logs(league_matches, match_starters)
     write_plus_minus_csv(results)
+
+    # print(results['021fd159b55773fba8157e2090fe0fe2']['012059d397c0b7e5a30a5bb89c0b075e'])
+    # print('')
+    # print('')
+    # print(results['021fd159b55773fba8157e2090fe0fe2']['cff694c8186a4bd377de400e4f60fe47'])
     
 calc_plus_minus()
