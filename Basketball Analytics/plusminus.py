@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 
+
 def process_match_lineups():
     """This function is used to make two dictionaries to a) hold unique match ups to track box scores 
        b) track players on the floor after each period
@@ -24,7 +25,7 @@ def process_match_lineups():
                 },
             }
         }
-        
+
         match_starters: {
             game_id: {
                 period_1: {
@@ -61,22 +62,23 @@ def process_match_lineups():
         if league_matches.get(game_id) is None:
             league_matches[game_id] = {}
             match_starters[game_id] = {}
-        
+
         if league_matches[game_id].get(team_id) is None:
             league_matches[game_id][team_id] = {}
             match_starters[game_id][team_id] = {}
 
         if league_matches[game_id][team_id].get('box_score') is None:
             league_matches[game_id][team_id]['box_score'] = 0
-        
+
         league_matches[game_id][team_id][person_id] = 0
-        
+
         if match_starters[game_id][team_id].get(period) is None:
             match_starters[game_id][team_id][period] = {}
-        
+
         match_starters[game_id][team_id][period][person_id] = True
-    
+
     return (league_matches, match_starters)
+
 
 def process_game_logs(league_matches, match_starters):
     """This function is used to determine the action to take from the play by log
@@ -90,8 +92,8 @@ def process_game_logs(league_matches, match_starters):
 
     """
 
-    play_by_play = pd.read_csv('results/NBA Hackathon - Play by Play Data Sample (50 Games).csv', 
-                              dtype={'Event_Msg_Type': np.int8, 'Period': np.int8, 'Action_Type': np.int8, 'Option1': np.int8})
+    play_by_play = pd.read_csv('results/NBA Hackathon - Play by Play Data Sample (50 Games).csv',
+                               dtype={'Event_Msg_Type': np.int8, 'Period': np.int8, 'Action_Type': np.int8, 'Option1': np.int8})
 
     active_after_ft = []
     sub_after_ft = []
@@ -111,28 +113,22 @@ def process_game_logs(league_matches, match_starters):
         # continue for invalid team_id. e.g. game start
         if game.get(team_id) is None:
             continue
-        
-        # if row['Event_Num'] == 138:
-        #     print(row)
-        #     print(active_after_ft)
-        #     print(sub_after_ft)
-        #     break
-        
-        # - differential score at start of period 
+
+        # - differential score at start of period
         if event == 12:
             teams = list(match_starters[game_id].keys())
 
             for unique_team in teams:
-                opponent = getOpponent(game, unique_team) 
+                opponent = getOpponent(game, unique_team)
                 players = list(match_starters[game_id][unique_team][period].keys())
 
                 for unique_player in players:
-                     if match_starters[game_id][unique_team][period][unique_player] is True:
-                         league_matches[game_id][unique_team][unique_player] -= (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
- 
+                    if match_starters[game_id][unique_team][period][unique_player] is True:
+                        league_matches[game_id][unique_team][unique_player] -= (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
+
         # reset players to update if free throws are finished
-        if (event != 3) and (event != 8):
-             # update players subbed out during a free throw 
+        if (event != 3) and (event != 8) and (event != 11):
+             # update players subbed out during a free throw
             if (len(active_after_ft) > 0):
                 for unique_player in active_after_ft:
                     league_matches[game_id][unique_player['team_id']][unique_player['player_id']] -= (league_matches[game_id][unique_player['team_id']]['box_score'] - league_matches[game_id][unique_player['opponent_id']]['box_score'])
@@ -145,14 +141,14 @@ def process_game_logs(league_matches, match_starters):
             sub_after_ft = []
 
         # update score when shot is made
-        if event == 1:
+        if (event == 1) and (action != 0):
             league_matches[game_id][team_id]['box_score'] += option
-        
-        # update score after a free throw 
+
+        # update score after a free throw
         if (event == 3) and (option > 0) and (action != 0):
             league_matches[game_id][team_id]['box_score'] += 1
-        
-        # calculate plus minus for players subbed out 
+
+        # calculate plus minus for players subbed out
         if (event == 8) or (event == 11):
             current_team = team_id
             opponent = getOpponent(game, team_id)
@@ -160,30 +156,37 @@ def process_game_logs(league_matches, match_starters):
             if (match_starters[game_id][team_id][period].get(player)) is None:
                 current_team = opponent
                 opponent = team_id
-            
+
             if (league_matches[game_id][current_team].get(sub)) is None:
                 league_matches[game_id][current_team][sub] = 0
 
-            bench_player = {'team_id': current_team, 'player_id': player, 'opponent_id': opponent}
-            active_player = {'team_id': current_team, 'player_id': sub, 'opponent_id': opponent}
+            bench_player = {'team_id': current_team,
+                            'player_id': player, 
+                            'opponent_id': opponent
+                            }
+            active_player = {'team_id': current_team,
+                             'player_id': sub, 
+                             'opponent_id': opponent
+                             }
             active_after_ft.append(active_player)
             sub_after_ft.append(bench_player)
-            match_starters[game_id][current_team][period][player] = False 
+            match_starters[game_id][current_team][period][player] = False
             match_starters[game_id][current_team][period][sub] = True
 
-        # calculate plus minus for player at the end of the quarter 
+        # calculate plus minus for player at the end of the quarter
         if event == 13:
             teams = list(match_starters[game_id].keys())
 
             for unique_team in teams:
-                opponent = getOpponent(game, unique_team) 
+                opponent = getOpponent(game, unique_team)
                 players = list(match_starters[game_id][unique_team][period].keys())
 
                 for unique_player in players:
-                     if match_starters[game_id][unique_team][period][unique_player] is True:
-                         league_matches[game_id][unique_team][unique_player] += (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
+                    if match_starters[game_id][unique_team][period][unique_player] is True:
+                        league_matches[game_id][unique_team][unique_player] += (league_matches[game_id][unique_team]['box_score'] - league_matches[game_id][opponent]['box_score'])
 
     return league_matches
+
 
 def getOpponent(game, team_id):
     """This function determines the team_id of the opposing team 
@@ -197,8 +200,9 @@ def getOpponent(game, team_id):
 
     """
     team_keys = [*game]
-    opponent = list(filter(lambda x: x != team_id , team_keys))[0]
+    opponent = list(filter(lambda x: x != team_id, team_keys))[0]
     return opponent
+
 
 def write_plus_minus_csv(plus_minus_data):
     """This function writes the plus minus data 
@@ -211,7 +215,8 @@ def write_plus_minus_csv(plus_minus_data):
 
     """
 
-    df = pd.read_csv('results/results_template.csv', dtype={'Player_Plus/Minus': np.int8})
+    df = pd.read_csv('results/results_template.csv',
+                     dtype={'Player_Plus/Minus': np.int8})
 
     for i, row in df.iterrows():
         game_id = row['Game_id']
@@ -225,9 +230,10 @@ def write_plus_minus_csv(plus_minus_data):
                 continue
             else:
                 df.at[i, 'Player_Plus/Minus'] = plus_minus_data[game_id][team][player]
-    
+
     df.to_csv('results/Q1_BBALL.csv', index=False)
     return True
+
 
 def calc_plus_minus():
     """This function calculates the plus minus and writes a csv file"""
@@ -235,9 +241,5 @@ def calc_plus_minus():
     results = process_game_logs(league_matches, match_starters)
     write_plus_minus_csv(results)
 
-    # print(results['021fd159b55773fba8157e2090fe0fe2']['012059d397c0b7e5a30a5bb89c0b075e'])
-    # print('')
-    # print('')
-    # print(results['021fd159b55773fba8157e2090fe0fe2']['cff694c8186a4bd377de400e4f60fe47'])
-    
+
 calc_plus_minus()
