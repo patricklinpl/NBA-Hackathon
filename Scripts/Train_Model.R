@@ -13,36 +13,40 @@ names(train_edit_df) <- c('GAME_ID', 'SEASON', 'GAME_DATE', 'AWAY_TEAM', 'HOME_T
 
                         
 # Regression Modeling
-k <- 10
-n <- nrow(train_edit_df)
+k <- 5
+n <- nrow(temp)
 ii <- (1:n) %% k + 1
 set.seed(123)
 N <- 100
 
 mape.tr.one <- rep(0, N)
 mape.tr.two <- rep(0, N)
+mape.tr.full <- rep(0, N)
 
 for(i in 1:N) {
   ii <- sample(ii)
   pr.tr.one <- rep(0, n)
   pr.tr.two <- rep(0, n)
-
+  pr.tr.full <- rep(0, n)
+  
   print(i)
   for(j in 1:k) {
-    x0 <- train_edit_df[ii != j, ]
+    x0 <- temp[ii != j, ]
     
-    first_model <- lm(VIEWERS ~ I(AWAY_TEAM %in% c('GSW', 'CLE', 'OKC', 'HOU', 'LAL', 'BOS', 'SAS', 'PHI')) * I(HOME_TEAM %in% c('GSW', 'CLE', 'OKC', 'HOU', 'LAL', 'BOS', 'SAS', 'PHI')) * AWAY_TREND * HOME_TREND * I(GAME_DATE == 2016-12-25) * I(GAME_DATE == 2017-12-25) + I(2016-10-25 > GAME_DATE & GAME_DATE > 2017-01-31) + I(2017-10-17 > GAME_DATE & GAME_DATE > 2018-01-31), data=x0)
-    second_model <- lm(VIEWERS ~ I(AWAY_TEAM %in% c('GSW', 'CLE')) * I(HOME_TEAM %in% c('GSW', 'CLE')) * I(GAME_DATE == 2016-12-25) * I(GAME_DATE == 2017-12-25) + I(AWAY_TEAM %in% c('GSW', 'CLE', 'OKC', 'HOU', 'LAL', 'BOS', 'SAS', 'PHI')) * I(HOME_TEAM %in% c('GSW', 'CLE', 'OKC', 'HOU', 'LAL', 'BOS', 'SAS', 'PHI')) * AWAY_TREND * HOME_TREND * I(GAME_DATE == 2016-12-25) * I(GAME_DATE == 2017-12-25) + I(2016-10-25 > GAME_DATE & GAME_DATE > 2017-01-31) + I(2017-10-17 > GAME_DATE & GAME_DATE > 2018-01-31), data=x0)
+    first_model <- lm(VIEWERS ~ . , data=x0)
+    second_model <- lm(VIEWERS ~ . , data=x0)
+    full_model <- lm(VIEWERS ~ . - GAME_ID, data=x0)
     
     
-    pr.tr.one[ ii == j ] <- predict(first_model, newdata=train_edit_df[ii==j,])
-    pr.tr.two[ ii == j ] <- predict(second_model, newdata=train_edit_df[ii==j,])
-
+    pr.tr.one[ ii == j ] <- predict(first_model, newdata=temp[ii==j,])
+    pr.tr.two[ ii == j ] <- predict(second_model, newdata=temp[ii==j,])
+    pr.tr.full[ ii == j ] <- predict(full_model, newdata=temp[ii==j,])
+    
   }
   
-  mape.tr.one[i] <- mean( abs((train_edit_df$VIEWERS - pr.tr.one)/train_edit_df$VIEWERS) )
-  mape.tr.two[i] <- mean( abs((train_edit_df$VIEWERS - pr.tr.two)/train_edit_df$VIEWERS) )
-  
+  mape.tr.one[i] <- mean( abs((temp$VIEWERS - pr.tr.one)/temp$VIEWERS) )
+  mape.tr.two[i] <- mean( abs((temp$VIEWERS - pr.tr.two)/temp$VIEWERS) )
+  mape.tr.full[i] <- mean( abs((temp$VIEWERS - pr.tr.full)/temp$VIEWERS) )
 }
 
-boxplot(mape.tr.one, mape.tr.two, names=c('Preliminary Model', 'Secondary Model'), col=c('gray60', 'pink'), ylab='MAPE')
+boxplot(mape.tr.one, mape.tr.two, mape.tr.full, names=c('Preliminary Model', 'Secondary Model', 'Full Model'), col=c('gray60', 'pink'), ylab='MAPE')
