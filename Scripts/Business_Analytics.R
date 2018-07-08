@@ -135,3 +135,15 @@ for (train in 1:nrow(temp)) {
   }
 }
 
+# Wins Entering Addition
+train_with_win_lead <- data.frame(train_with_wins_entering$GAME_ID, as.character(train_with_wins_entering$SEASON), train_with_wins_entering$GAME_DATE, as.character(train_with_wins_entering$AWAY_TEAM), as.character(train_with_wins_entering$HOME_TEAM), train_with_wins_entering$AWAY_TREND, train_with_wins_entering$HOME_TREND, train_with_wins_entering$VIEWERS, train_with_wins_entering$DAY, train_with_attendance$TIME, train_with_wins_entering$BROADCAST, train_with_wins_entering$ATTENDANCE, train_with_wins_entering$OVERTIME, train_with_wins_entering$WIN_ENTER_HOME, train_with_wins_entering$WIN_ENTER_AWAY, -1, -1, -1, -1, -1, -1)
+names(train_with_win_lead) <- c('GAME_ID', 'SEASON', 'GAME_DATE', 'AWAY_TEAM', 'HOME_TEAM', 'AWAY_TREND', 'HOME_TREND', 'VIEWERS', 'DAY', 'TIME', 'BROADCAST', 'ATTENDANCE', 'OVERTIME', 'WIN_ENTER_HOME', 'WIN_ENTER_AWAY', 'LEAD_CHANGE_H', 'LEAD_CHANGE_A', 'TIES_H', 'TIES_A', 'LARGEST_LEAD_H', 'LARGEST_LEAD_A')
+
+for (train in 1:nrow(train_with_win_lead)) {
+  
+  game_id <- train_with_win_lead[train, 1]
+  train_with_win_lead[train, 17] <- game_data[game_data$Game_ID == game_id & game_data$Location == 'A', 10]
+  train_with_win_lead[train, 19] <- game_data[game_data$Game_ID == game_id & game_data$Location == 'A', 11]
+  train_with_win_lead[train, 21] <- game_data[game_data$Game_ID == game_id & game_data$Location == 'A', 12]
+}
+
