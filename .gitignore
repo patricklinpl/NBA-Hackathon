@@ -102,7 +102,42 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# compiled output
+/dist
+.env
+
+# dependencies
+/node_modules
+
+# misc
+npm-debug.log
+
+.*cache
+*.log
+cache/*
+backup
+_files
+log
+log/**/*
+.monitor
+Forwardfile
+
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.lnk
+*~
+
+*.sublime-*
+*.tmproj
+
+.node_modules
+node_modules
+*/node_modules
+/node_modules/*
+
 Basketball Analytics/results/NBA Hackathon - Game Lineup Data Sample (50 Games).csv
 Basketball Analytics/results/NBA Hackathon - Event Codes.csv
 Basketball Analytics/results/NBA Hackathon - Play by Play Data Sample (50 Games).csv
