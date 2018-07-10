@@ -1,0 +1,29 @@
+{
+  "name": "google-trends-query-builder",
+  "version": "1.0.0",
+  "description": "Google trends query builder for NBA trends",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist/ && babel src -s -D -d dist",
+    "start": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "rimraf": "^2.6.2"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-0"
+    ]
+  },
+  "author": "Patrick Lin",
+  "license": "MIT"
+}

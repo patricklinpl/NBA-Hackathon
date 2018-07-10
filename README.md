@@ -1,5 +1,5 @@
 # NBA-Hackathon
 
-Team: Varoon, Barak, Kevin, Colby
+Team: Varoon, Patrick, Kevin
 
 Application [https://hackathon.nba.com/apply/]
