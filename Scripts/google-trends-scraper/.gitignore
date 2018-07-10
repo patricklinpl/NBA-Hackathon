@@ -1,0 +1,34 @@
+# compiled output
+/dist
+.env
+
+# dependencies
+/node_modules
+
+# misc
+npm-debug.log
+
+.*cache
+*.log
+cache/*
+backup
+_files
+log
+log/**/*
+.monitor
+Forwardfile
+
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.lnk
+*~
+
+*.sublime-*
+*.tmproj
+
+.node_modules
+node_modules
+*/node_modules
+/node_modules/*
