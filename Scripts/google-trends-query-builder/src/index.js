@@ -3,8 +3,8 @@ import fs from 'fs'
 import mkdirp from 'mkdirp'
 import teams from './data/nba-teams'
 
-const buildQueryString = async () => {
-  const base = `https://trends.google.com/trends/explore?date=2016-10-01%202017-05-01&q=`
+const buildQueryString = async (date) => {
+  const base = `https://trends.google.com/trends/explore?date=${date}&q=`
   const atlanta = `%2Fm%2F0jm64,`
   let searchQ = `${base}${atlanta}`
   const queryHolder = ['Google Trends']
@@ -27,9 +27,10 @@ const buildQueryString = async () => {
     })
   }
 
-  await fs.writeFile(`./results/queryTrends.csv`, queryHolder, 'utf8', (err) => {
+  await fs.writeFile(`./results/queryTrends${date}.csv`, queryHolder, 'utf8', (err) => {
     if (err) throw err
   })
 }
 
-buildQueryString()
+buildQueryString(`2016-10-01%202017-05-01`)
+buildQueryString(`2017-10-01%202018-05-01`)
