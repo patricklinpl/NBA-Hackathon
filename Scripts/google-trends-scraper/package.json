@@ -1,7 +1,7 @@
 {
-  "name": "google-trends-scraper",
+  "name": "google-trends-query-builder",
   "version": "1.0.0",
-  "description": "Google trends scraper for the NBA",
+  "description": "Google trends query builder for NBA trends",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist/ && babel src -s -D -d dist",
