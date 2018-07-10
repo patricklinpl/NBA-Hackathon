@@ -1,0 +1,998 @@
+[
+  {
+    "official_name_en": "Afghanistan",
+    "ISO3166-1-Alpha-2": "AF"
+  },
+  {
+    "official_name_en": "Albania",
+    "ISO3166-1-Alpha-2": "AL"
+  },
+  {
+    "official_name_en": "Algeria",
+    "ISO3166-1-Alpha-2": "DZ"
+  },
+  {
+    "official_name_en": "American Samoa",
+    "ISO3166-1-Alpha-2": "AS"
+  },
+  {
+    "official_name_en": "Andorra",
+    "ISO3166-1-Alpha-2": "AD"
+  },
+  {
+    "official_name_en": "Angola",
+    "ISO3166-1-Alpha-2": "AO"
+  },
+  {
+    "official_name_en": "Anguilla",
+    "ISO3166-1-Alpha-2": "AI"
+  },
+  {
+    "official_name_en": "Antarctica",
+    "ISO3166-1-Alpha-2": "AQ"
+  },
+  {
+    "official_name_en": "Antigua and Barbuda",
+    "ISO3166-1-Alpha-2": "AG"
+  },
+  {
+    "official_name_en": "Argentina",
+    "ISO3166-1-Alpha-2": "AR"
+  },
+  {
+    "official_name_en": "Armenia",
+    "ISO3166-1-Alpha-2": "AM"
+  },
+  {
+    "official_name_en": "Aruba",
+    "ISO3166-1-Alpha-2": "AW"
+  },
+  {
+    "official_name_en": "Australia",
+    "ISO3166-1-Alpha-2": "AU"
+  },
+  {
+    "official_name_en": "Austria",
+    "ISO3166-1-Alpha-2": "AT"
+  },
+  {
+    "official_name_en": "Azerbaijan",
+    "ISO3166-1-Alpha-2": "AZ"
+  },
+  {
+    "official_name_en": "Bahamas",
+    "ISO3166-1-Alpha-2": "BS"
+  },
+  {
+    "official_name_en": "Bahrain",
+    "ISO3166-1-Alpha-2": "BH"
+  },
+  {
+    "official_name_en": "Bangladesh",
+    "ISO3166-1-Alpha-2": "BD"
+  },
+  {
+    "official_name_en": "Barbados",
+    "ISO3166-1-Alpha-2": "BB"
+  },
+  {
+    "official_name_en": "Belarus",
+    "ISO3166-1-Alpha-2": "BY"
+  },
+  {
+    "official_name_en": "Belgium",
+    "ISO3166-1-Alpha-2": "BE"
+  },
+  {
+    "official_name_en": "Belize",
+    "ISO3166-1-Alpha-2": "BZ"
+  },
+  {
+    "official_name_en": "Benin",
+    "ISO3166-1-Alpha-2": "BJ"
+  },
+  {
+    "official_name_en": "Bermuda",
+    "ISO3166-1-Alpha-2": "BM"
+  },
+  {
+    "official_name_en": "Bhutan",
+    "ISO3166-1-Alpha-2": "BT"
+  },
+  {
+    "official_name_en": "Bolivia (Plurinational State of)",
+    "ISO3166-1-Alpha-2": "BO"
+  },
+  {
+    "official_name_en": "Bonaire, Sint Eustatius and Saba",
+    "ISO3166-1-Alpha-2": "BQ"
+  },
+  {
+    "official_name_en": "Bosnia and Herzegovina",
+    "ISO3166-1-Alpha-2": "BA"
+  },
+  {
+    "official_name_en": "Botswana",
+    "ISO3166-1-Alpha-2": "BW"
+  },
+  {
+    "official_name_en": "Bouvet Island",
+    "ISO3166-1-Alpha-2": "BV"
+  },
+  {
+    "official_name_en": "Brazil",
+    "ISO3166-1-Alpha-2": "BR"
+  },
+  {
+    "official_name_en": "British Indian Ocean Territory",
+    "ISO3166-1-Alpha-2": "IO"
+  },
+  {
+    "official_name_en": "British Virgin Islands",
+    "ISO3166-1-Alpha-2": "VG"
+  },
+  {
+    "official_name_en": "Brunei Darussalam",
+    "ISO3166-1-Alpha-2": "BN"
+  },
+  {
+    "official_name_en": "Bulgaria",
+    "ISO3166-1-Alpha-2": "BG"
+  },
+  {
+    "official_name_en": "Burkina Faso",
+    "ISO3166-1-Alpha-2": "BF"
+  },
+  {
+    "official_name_en": "Burundi",
+    "ISO3166-1-Alpha-2": "BI"
+  },
+  {
+    "official_name_en": "Cabo Verde",
+    "ISO3166-1-Alpha-2": "CV"
+  },
+  {
+    "official_name_en": "Cambodia",
+    "ISO3166-1-Alpha-2": "KH"
+  },
+  {
+    "official_name_en": "Cameroon",
+    "ISO3166-1-Alpha-2": "CM"
+  },
+  {
+    "official_name_en": "Canada",
+    "ISO3166-1-Alpha-2": "CA"
+  },
+  {
+    "official_name_en": "Cayman Islands",
+    "ISO3166-1-Alpha-2": "KY"
+  },
+  {
+    "official_name_en": "Central African Republic",
+    "ISO3166-1-Alpha-2": "CF"
+  },
+  {
+    "official_name_en": "Chad",
+    "ISO3166-1-Alpha-2": "TD"
+  },
+  {
+    "official_name_en": "Chile",
+    "ISO3166-1-Alpha-2": "CL"
+  },
+  {
+    "official_name_en": "China",
+    "ISO3166-1-Alpha-2": "CN"
+  },
+  {
+    "official_name_en": "China, Hong Kong Special Administrative Region",
+    "ISO3166-1-Alpha-2": "HK"
+  },
+  {
+    "official_name_en": "China, Macao Special Administrative Region",
+    "ISO3166-1-Alpha-2": "MO"
+  },
+  {
+    "official_name_en": "Christmas Island",
+    "ISO3166-1-Alpha-2": "CX"
+  },
+  {
+    "official_name_en": "Cocos (Keeling) Islands",
+    "ISO3166-1-Alpha-2": "CC"
+  },
+  {
+    "official_name_en": "Colombia",
+    "ISO3166-1-Alpha-2": "CO"
+  },
+  {
+    "official_name_en": "Comoros",
+    "ISO3166-1-Alpha-2": "KM"
+  },
+  {
+    "official_name_en": "Congo",
+    "ISO3166-1-Alpha-2": "CG"
+  },
+  {
+    "official_name_en": "Cook Islands",
+    "ISO3166-1-Alpha-2": "CK"
+  },
+  {
+    "official_name_en": "Costa Rica",
+    "ISO3166-1-Alpha-2": "CR"
+  },
+  {
+    "official_name_en": "Croatia",
+    "ISO3166-1-Alpha-2": "HR"
+  },
+  {
+    "official_name_en": "Cuba",
+    "ISO3166-1-Alpha-2": "CU"
+  },
+  {
+    "official_name_en": "Curaçao",
+    "ISO3166-1-Alpha-2": "CW"
+  },
+  {
+    "official_name_en": "Cyprus",
+    "ISO3166-1-Alpha-2": "CY"
+  },
+  {
+    "official_name_en": "Czechia",
+    "ISO3166-1-Alpha-2": "CZ"
+  },
+  {
+    "official_name_en": "Côte d'Ivoire",
+    "ISO3166-1-Alpha-2": "CI"
+  },
+  {
+    "official_name_en": "Democratic People's Republic of Korea",
+    "ISO3166-1-Alpha-2": "KP"
+  },
+  {
+    "official_name_en": "Democratic Republic of the Congo",
+    "ISO3166-1-Alpha-2": "CD"
+  },
+  {
+    "official_name_en": "Denmark",
+    "ISO3166-1-Alpha-2": "DK"
+  },
+  {
+    "official_name_en": "Djibouti",
+    "ISO3166-1-Alpha-2": "DJ"
+  },
+  {
+    "official_name_en": "Dominica",
+    "ISO3166-1-Alpha-2": "DM"
+  },
+  {
+    "official_name_en": "Dominican Republic",
+    "ISO3166-1-Alpha-2": "DO"
+  },
+  {
+    "official_name_en": "Ecuador",
+    "ISO3166-1-Alpha-2": "EC"
+  },
+  {
+    "official_name_en": "Egypt",
+    "ISO3166-1-Alpha-2": "EG"
+  },
+  {
+    "official_name_en": "El Salvador",
+    "ISO3166-1-Alpha-2": "SV"
+  },
+  {
+    "official_name_en": "Equatorial Guinea",
+    "ISO3166-1-Alpha-2": "GQ"
+  },
+  {
+    "official_name_en": "Eritrea",
+    "ISO3166-1-Alpha-2": "ER"
+  },
+  {
+    "official_name_en": "Estonia",
+    "ISO3166-1-Alpha-2": "EE"
+  },
+  {
+    "official_name_en": "Ethiopia",
+    "ISO3166-1-Alpha-2": "ET"
+  },
+  {
+    "official_name_en": "Falkland Islands (Malvinas)",
+    "ISO3166-1-Alpha-2": "FK"
+  },
+  {
+    "official_name_en": "Faroe Islands",
+    "ISO3166-1-Alpha-2": "FO"
+  },
+  {
+    "official_name_en": "Fiji",
+    "ISO3166-1-Alpha-2": "FJ"
+  },
+  {
+    "official_name_en": "Finland",
+    "ISO3166-1-Alpha-2": "FI"
+  },
+  {
+    "official_name_en": "France",
+    "ISO3166-1-Alpha-2": "FR"
+  },
+  {
+    "official_name_en": "French Guiana",
+    "ISO3166-1-Alpha-2": "GF"
+  },
+  {
+    "official_name_en": "French Polynesia",
+    "ISO3166-1-Alpha-2": "PF"
+  },
+  {
+    "official_name_en": "French Southern Territories",
+    "ISO3166-1-Alpha-2": "TF"
+  },
+  {
+    "official_name_en": "Gabon",
+    "ISO3166-1-Alpha-2": "GA"
+  },
+  {
+    "official_name_en": "Gambia",
+    "ISO3166-1-Alpha-2": "GM"
+  },
+  {
+    "official_name_en": "Georgia",
+    "ISO3166-1-Alpha-2": "GE"
+  },
+  {
+    "official_name_en": "Germany",
+    "ISO3166-1-Alpha-2": "DE"
+  },
+  {
+    "official_name_en": "Ghana",
+    "ISO3166-1-Alpha-2": "GH"
+  },
+  {
+    "official_name_en": "Gibraltar",
+    "ISO3166-1-Alpha-2": "GI"
+  },
+  {
+    "official_name_en": "Greece",
+    "ISO3166-1-Alpha-2": "GR"
+  },
+  {
+    "official_name_en": "Greenland",
+    "ISO3166-1-Alpha-2": "GL"
+  },
+  {
+    "official_name_en": "Grenada",
+    "ISO3166-1-Alpha-2": "GD"
+  },
+  {
+    "official_name_en": "Guadeloupe",
+    "ISO3166-1-Alpha-2": "GP"
+  },
+  {
+    "official_name_en": "Guam",
+    "ISO3166-1-Alpha-2": "GU"
+  },
+  {
+    "official_name_en": "Guatemala",
+    "ISO3166-1-Alpha-2": "GT"
+  },
+  {
+    "official_name_en": "Guernsey",
+    "ISO3166-1-Alpha-2": "GG"
+  },
+  {
+    "official_name_en": "Guinea",
+    "ISO3166-1-Alpha-2": "GN"
+  },
+  {
+    "official_name_en": "Guinea-Bissau",
+    "ISO3166-1-Alpha-2": "GW"
+  },
+  {
+    "official_name_en": "Guyana",
+    "ISO3166-1-Alpha-2": "GY"
+  },
+  {
+    "official_name_en": "Haiti",
+    "ISO3166-1-Alpha-2": "HT"
+  },
+  {
+    "official_name_en": "Heard Island and McDonald Islands",
+    "ISO3166-1-Alpha-2": "HM"
+  },
+  {
+    "official_name_en": "Holy See",
+    "ISO3166-1-Alpha-2": "VA"
+  },
+  {
+    "official_name_en": "Honduras",
+    "ISO3166-1-Alpha-2": "HN"
+  },
+  {
+    "official_name_en": "Hungary",
+    "ISO3166-1-Alpha-2": "HU"
+  },
+  {
+    "official_name_en": "Iceland",
+    "ISO3166-1-Alpha-2": "IS"
+  },
+  {
+    "official_name_en": "India",
+    "ISO3166-1-Alpha-2": "IN"
+  },
+  {
+    "official_name_en": "Indonesia",
+    "ISO3166-1-Alpha-2": "ID"
+  },
+  {
+    "official_name_en": "Iran (Islamic Republic of)",
+    "ISO3166-1-Alpha-2": "IR"
+  },
+  {
+    "official_name_en": "Iraq",
+    "ISO3166-1-Alpha-2": "IQ"
+  },
+  {
+    "official_name_en": "Ireland",
+    "ISO3166-1-Alpha-2": "IE"
+  },
+  {
+    "official_name_en": "Isle of Man",
+    "ISO3166-1-Alpha-2": "IM"
+  },
+  {
+    "official_name_en": "Israel",
+    "ISO3166-1-Alpha-2": "IL"
+  },
+  {
+    "official_name_en": "Italy",
+    "ISO3166-1-Alpha-2": "IT"
+  },
+  {
+    "official_name_en": "Jamaica",
+    "ISO3166-1-Alpha-2": "JM"
+  },
+  {
+    "official_name_en": "Japan",
+    "ISO3166-1-Alpha-2": "JP"
+  },
+  {
+    "official_name_en": "Jersey",
+    "ISO3166-1-Alpha-2": "JE"
+  },
+  {
+    "official_name_en": "Jordan",
+    "ISO3166-1-Alpha-2": "JO"
+  },
+  {
+    "official_name_en": "Kazakhstan",
+    "ISO3166-1-Alpha-2": "KZ"
+  },
+  {
+    "official_name_en": "Kenya",
+    "ISO3166-1-Alpha-2": "KE"
+  },
+  {
+    "official_name_en": "Kiribati",
+    "ISO3166-1-Alpha-2": "KI"
+  },
+  {
+    "official_name_en": "Kuwait",
+    "ISO3166-1-Alpha-2": "KW"
+  },
+  {
+    "official_name_en": "Kyrgyzstan",
+    "ISO3166-1-Alpha-2": "KG"
+  },
+  {
+    "official_name_en": "Lao People's Democratic Republic",
+    "ISO3166-1-Alpha-2": "LA"
+  },
+  {
+    "official_name_en": "Latvia",
+    "ISO3166-1-Alpha-2": "LV"
+  },
+  {
+    "official_name_en": "Lebanon",
+    "ISO3166-1-Alpha-2": "LB"
+  },
+  {
+    "official_name_en": "Lesotho",
+    "ISO3166-1-Alpha-2": "LS"
+  },
+  {
+    "official_name_en": "Liberia",
+    "ISO3166-1-Alpha-2": "LR"
+  },
+  {
+    "official_name_en": "Libya",
+    "ISO3166-1-Alpha-2": "LY"
+  },
+  {
+    "official_name_en": "Liechtenstein",
+    "ISO3166-1-Alpha-2": "LI"
+  },
+  {
+    "official_name_en": "Lithuania",
+    "ISO3166-1-Alpha-2": "LT"
+  },
+  {
+    "official_name_en": "Luxembourg",
+    "ISO3166-1-Alpha-2": "LU"
+  },
+  {
+    "official_name_en": "Madagascar",
+    "ISO3166-1-Alpha-2": "MG"
+  },
+  {
+    "official_name_en": "Malawi",
+    "ISO3166-1-Alpha-2": "MW"
+  },
+  {
+    "official_name_en": "Malaysia",
+    "ISO3166-1-Alpha-2": "MY"
+  },
+  {
+    "official_name_en": "Maldives",
+    "ISO3166-1-Alpha-2": "MV"
+  },
+  {
+    "official_name_en": "Mali",
+    "ISO3166-1-Alpha-2": "ML"
+  },
+  {
+    "official_name_en": "Malta",
+    "ISO3166-1-Alpha-2": "MT"
+  },
+  {
+    "official_name_en": "Marshall Islands",
+    "ISO3166-1-Alpha-2": "MH"
+  },
+  {
+    "official_name_en": "Martinique",
+    "ISO3166-1-Alpha-2": "MQ"
+  },
+  {
+    "official_name_en": "Mauritania",
+    "ISO3166-1-Alpha-2": "MR"
+  },
+  {
+    "official_name_en": "Mauritius",
+    "ISO3166-1-Alpha-2": "MU"
+  },
+  {
+    "official_name_en": "Mayotte",
+    "ISO3166-1-Alpha-2": "YT"
+  },
+  {
+    "official_name_en": "Mexico",
+    "ISO3166-1-Alpha-2": "MX"
+  },
+  {
+    "official_name_en": "Micronesia (Federated States of)",
+    "ISO3166-1-Alpha-2": "FM"
+  },
+  {
+    "official_name_en": "Monaco",
+    "ISO3166-1-Alpha-2": "MC"
+  },
+  {
+    "official_name_en": "Mongolia",
+    "ISO3166-1-Alpha-2": "MN"
+  },
+  {
+    "official_name_en": "Montenegro",
+    "ISO3166-1-Alpha-2": "ME"
+  },
+  {
+    "official_name_en": "Montserrat",
+    "ISO3166-1-Alpha-2": "MS"
+  },
+  {
+    "official_name_en": "Morocco",
+    "ISO3166-1-Alpha-2": "MA"
+  },
+  {
+    "official_name_en": "Mozambique",
+    "ISO3166-1-Alpha-2": "MZ"
+  },
+  {
+    "official_name_en": "Myanmar",
+    "ISO3166-1-Alpha-2": "MM"
+  },
+  {
+    "official_name_en": "Namibia",
+    "ISO3166-1-Alpha-2": "NA"
+  },
+  {
+    "official_name_en": "Nauru",
+    "ISO3166-1-Alpha-2": "NR"
+  },
+  {
+    "official_name_en": "Nepal",
+    "ISO3166-1-Alpha-2": "NP"
+  },
+  {
+    "official_name_en": "Netherlands",
+    "ISO3166-1-Alpha-2": "NL"
+  },
+  {
+    "official_name_en": "New Caledonia",
+    "ISO3166-1-Alpha-2": "NC"
+  },
+  {
+    "official_name_en": "New Zealand",
+    "ISO3166-1-Alpha-2": "NZ"
+  },
+  {
+    "official_name_en": "Nicaragua",
+    "ISO3166-1-Alpha-2": "NI"
+  },
+  {
+    "official_name_en": "Niger",
+    "ISO3166-1-Alpha-2": "NE"
+  },
+  {
+    "official_name_en": "Nigeria",
+    "ISO3166-1-Alpha-2": "NG"
+  },
+  {
+    "official_name_en": "Niue",
+    "ISO3166-1-Alpha-2": "NU"
+  },
+  {
+    "official_name_en": "Norfolk Island",
+    "ISO3166-1-Alpha-2": "NF"
+  },
+  {
+    "official_name_en": "Northern Mariana Islands",
+    "ISO3166-1-Alpha-2": "MP"
+  },
+  {
+    "official_name_en": "Norway",
+    "ISO3166-1-Alpha-2": "NO"
+  },
+  {
+    "official_name_en": "Oman",
+    "ISO3166-1-Alpha-2": "OM"
+  },
+  {
+    "official_name_en": "Pakistan",
+    "ISO3166-1-Alpha-2": "PK"
+  },
+  {
+    "official_name_en": "Palau",
+    "ISO3166-1-Alpha-2": "PW"
+  },
+  {
+    "official_name_en": "Panama",
+    "ISO3166-1-Alpha-2": "PA"
+  },
+  {
+    "official_name_en": "Papua New Guinea",
+    "ISO3166-1-Alpha-2": "PG"
+  },
+  {
+    "official_name_en": "Paraguay",
+    "ISO3166-1-Alpha-2": "PY"
+  },
+  {
+    "official_name_en": "Peru",
+    "ISO3166-1-Alpha-2": "PE"
+  },
+  {
+    "official_name_en": "Philippines",
+    "ISO3166-1-Alpha-2": "PH"
+  },
+  {
+    "official_name_en": "Pitcairn",
+    "ISO3166-1-Alpha-2": "PN"
+  },
+  {
+    "official_name_en": "Poland",
+    "ISO3166-1-Alpha-2": "PL"
+  },
+  {
+    "official_name_en": "Portugal",
+    "ISO3166-1-Alpha-2": "PT"
+  },
+  {
+    "official_name_en": "Puerto Rico",
+    "ISO3166-1-Alpha-2": "PR"
+  },
+  {
+    "official_name_en": "Qatar",
+    "ISO3166-1-Alpha-2": "QA"
+  },
+  {
+    "official_name_en": "Republic of Korea",
+    "ISO3166-1-Alpha-2": "KR"
+  },
+  {
+    "official_name_en": "Republic of Moldova",
+    "ISO3166-1-Alpha-2": "MD"
+  },
+  {
+    "official_name_en": "Romania",
+    "ISO3166-1-Alpha-2": "RO"
+  },
+  {
+    "official_name_en": "Russian Federation",
+    "ISO3166-1-Alpha-2": "RU"
+  },
+  {
+    "official_name_en": "Rwanda",
+    "ISO3166-1-Alpha-2": "RW"
+  },
+  {
+    "official_name_en": "Réunion",
+    "ISO3166-1-Alpha-2": "RE"
+  },
+  {
+    "official_name_en": "Saint Barthélemy",
+    "ISO3166-1-Alpha-2": "BL"
+  },
+  {
+    "official_name_en": "Saint Helena",
+    "ISO3166-1-Alpha-2": "SH"
+  },
+  {
+    "official_name_en": "Saint Kitts and Nevis",
+    "ISO3166-1-Alpha-2": "KN"
+  },
+  {
+    "official_name_en": "Saint Lucia",
+    "ISO3166-1-Alpha-2": "LC"
+  },
+  {
+    "official_name_en": "Saint Martin (French Part)",
+    "ISO3166-1-Alpha-2": "MF"
+  },
+  {
+    "official_name_en": "Saint Pierre and Miquelon",
+    "ISO3166-1-Alpha-2": "PM"
+  },
+  {
+    "official_name_en": "Saint Vincent and the Grenadines",
+    "ISO3166-1-Alpha-2": "VC"
+  },
+  {
+    "official_name_en": "Samoa",
+    "ISO3166-1-Alpha-2": "WS"
+  },
+  {
+    "official_name_en": "San Marino",
+    "ISO3166-1-Alpha-2": "SM"
+  },
+  {
+    "official_name_en": "Sao Tome and Principe",
+    "ISO3166-1-Alpha-2": "ST"
+  },
+  {
+    "official_name_en": "Sark",
+    "ISO3166-1-Alpha-2": ""
+  },
+  {
+    "official_name_en": "Saudi Arabia",
+    "ISO3166-1-Alpha-2": "SA"
+  },
+  {
+    "official_name_en": "Senegal",
+    "ISO3166-1-Alpha-2": "SN"
+  },
+  {
+    "official_name_en": "Serbia",
+    "ISO3166-1-Alpha-2": "RS"
+  },
+  {
+    "official_name_en": "Seychelles",
+    "ISO3166-1-Alpha-2": "SC"
+  },
+  {
+    "official_name_en": "Sierra Leone",
+    "ISO3166-1-Alpha-2": "SL"
+  },
+  {
+    "official_name_en": "Singapore",
+    "ISO3166-1-Alpha-2": "SG"
+  },
+  {
+    "official_name_en": "Sint Maarten (Dutch part)",
+    "ISO3166-1-Alpha-2": "SX"
+  },
+  {
+    "official_name_en": "Slovakia",
+    "ISO3166-1-Alpha-2": "SK"
+  },
+  {
+    "official_name_en": "Slovenia",
+    "ISO3166-1-Alpha-2": "SI"
+  },
+  {
+    "official_name_en": "Solomon Islands",
+    "ISO3166-1-Alpha-2": "SB"
+  },
+  {
+    "official_name_en": "Somalia",
+    "ISO3166-1-Alpha-2": "SO"
+  },
+  {
+    "official_name_en": "South Africa",
+    "ISO3166-1-Alpha-2": "ZA"
+  },
+  {
+    "official_name_en": "South Georgia and the South Sandwich Islands",
+    "ISO3166-1-Alpha-2": "GS"
+  },
+  {
+    "official_name_en": "South Sudan",
+    "ISO3166-1-Alpha-2": "SS"
+  },
+  {
+    "official_name_en": "Spain",
+    "ISO3166-1-Alpha-2": "ES"
+  },
+  {
+    "official_name_en": "Sri Lanka",
+    "ISO3166-1-Alpha-2": "LK"
+  },
+  {
+    "official_name_en": "State of Palestine",
+    "ISO3166-1-Alpha-2": "PS"
+  },
+  {
+    "official_name_en": "Sudan",
+    "ISO3166-1-Alpha-2": "SD"
+  },
+  {
+    "official_name_en": "Suriname",
+    "ISO3166-1-Alpha-2": "SR"
+  },
+  {
+    "official_name_en": "Svalbard and Jan Mayen Islands",
+    "ISO3166-1-Alpha-2": "SJ"
+  },
+  {
+    "official_name_en": "Swaziland",
+    "ISO3166-1-Alpha-2": "SZ"
+  },
+  {
+    "official_name_en": "Sweden",
+    "ISO3166-1-Alpha-2": "SE"
+  },
+  {
+    "official_name_en": "Switzerland",
+    "ISO3166-1-Alpha-2": "CH"
+  },
+  {
+    "official_name_en": "Syrian Arab Republic",
+    "ISO3166-1-Alpha-2": "SY"
+  },
+  {
+    "official_name_en": "Tajikistan",
+    "ISO3166-1-Alpha-2": "TJ"
+  },
+  {
+    "official_name_en": "Thailand",
+    "ISO3166-1-Alpha-2": "TH"
+  },
+  {
+    "official_name_en": "The former Yugoslav Republic of Macedonia",
+    "ISO3166-1-Alpha-2": "MK"
+  },
+  {
+    "official_name_en": "Timor-Leste",
+    "ISO3166-1-Alpha-2": "TL"
+  },
+  {
+    "official_name_en": "Togo",
+    "ISO3166-1-Alpha-2": "TG"
+  },
+  {
+    "official_name_en": "Tokelau",
+    "ISO3166-1-Alpha-2": "TK"
+  },
+  {
+    "official_name_en": "Tonga",
+    "ISO3166-1-Alpha-2": "TO"
+  },
+  {
+    "official_name_en": "Trinidad and Tobago",
+    "ISO3166-1-Alpha-2": "TT"
+  },
+  {
+    "official_name_en": "Tunisia",
+    "ISO3166-1-Alpha-2": "TN"
+  },
+  {
+    "official_name_en": "Turkey",
+    "ISO3166-1-Alpha-2": "TR"
+  },
+  {
+    "official_name_en": "Turkmenistan",
+    "ISO3166-1-Alpha-2": "TM"
+  },
+  {
+    "official_name_en": "Turks and Caicos Islands",
+    "ISO3166-1-Alpha-2": "TC"
+  },
+  {
+    "official_name_en": "Tuvalu",
+    "ISO3166-1-Alpha-2": "TV"
+  },
+  {
+    "official_name_en": "Uganda",
+    "ISO3166-1-Alpha-2": "UG"
+  },
+  {
+    "official_name_en": "Ukraine",
+    "ISO3166-1-Alpha-2": "UA"
+  },
+  {
+    "official_name_en": "United Arab Emirates",
+    "ISO3166-1-Alpha-2": "AE"
+  },
+  {
+    "official_name_en": "United Kingdom of Great Britain and Northern Ireland",
+    "ISO3166-1-Alpha-2": "GB"
+  },
+  {
+    "official_name_en": "United Republic of Tanzania",
+    "ISO3166-1-Alpha-2": "TZ"
+  },
+  {
+    "official_name_en": "United States Minor Outlying Islands",
+    "ISO3166-1-Alpha-2": "UM"
+  },
+  {
+    "official_name_en": "United States Virgin Islands",
+    "ISO3166-1-Alpha-2": "VI"
+  },
+  {
+    "official_name_en": "United States of America",
+    "ISO3166-1-Alpha-2": "US"
+  },
+  {
+    "official_name_en": "Uruguay",
+    "ISO3166-1-Alpha-2": "UY"
+  },
+  {
+    "official_name_en": "Uzbekistan",
+    "ISO3166-1-Alpha-2": "UZ"
+  },
+  {
+    "official_name_en": "Vanuatu",
+    "ISO3166-1-Alpha-2": "VU"
+  },
+  {
+    "official_name_en": "Venezuela (Bolivarian Republic of)",
+    "ISO3166-1-Alpha-2": "VE"
+  },
+  {
+    "official_name_en": "Viet Nam",
+    "ISO3166-1-Alpha-2": "VN"
+  },
+  {
+    "official_name_en": "Wallis and Futuna Islands",
+    "ISO3166-1-Alpha-2": "WF"
+  },
+  {
+    "official_name_en": "Western Sahara",
+    "ISO3166-1-Alpha-2": "EH"
+  },
+  {
+    "official_name_en": "Yemen",
+    "ISO3166-1-Alpha-2": "YE"
+  },
+  {
+    "official_name_en": "Zambia",
+    "ISO3166-1-Alpha-2": "ZM"
+  },
+  {
+    "official_name_en": "Zimbabwe",
+    "ISO3166-1-Alpha-2": "ZW"
+  },
+  {
+    "official_name_en": "Åland Islands",
+    "ISO3166-1-Alpha-2": "AX"
+  }
+]
